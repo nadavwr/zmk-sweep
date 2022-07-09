@@ -59,6 +59,9 @@
 #define _SPC    &kp SPC
 #define _S_RBKT _LS(RBKT)
 #define _TAB    &kp TAB
+#define _STAB   _LS(TAB)
+#define _FTAB   _LC(TAB)
+#define _BTAB   _LC(_LS(TAB))
 #define _TILD   &kp TILD
 #define _UNDR   &kp UNDER
 
@@ -75,7 +78,7 @@
 #define _BT1    &bt BT_SEL 1
 #define _BT2    &bt BT_SEL 2
 #define _BT3    &bt BT_SEL 3
-#define _BTCLR  &bt BT_CLR
+#define _BTC    &bt BT_CLR
 
 #define _F1     &kp F1
 #define _F2     &kp F2
@@ -117,6 +120,8 @@
 #define _FN &mo fn_layer
 #define _F(x)   &ltp fn_layer x
 
+#define adjust_layer 5
+
 #define TAPPING_TERM 150
 
 #define _BLANK \
@@ -147,6 +152,14 @@
     };
   };
 
+  conditional_layers {
+    compatible = "zmk, conditional-layers";
+    _adjust_layer {
+      if-layers = <symbol_layer fn_layer>;
+      then-layer = <adjust_layer>;
+    };
+  };
+
   keymap {
     compatible = "zmk,keymap";
 
@@ -155,7 +168,7 @@
         &kp Q  &kp W   &kp E  &kp R  &kp T                     &kp Y  &kp U  &kp I  &kp O   &kp P
         SYM(A) _LS(S)  _N(D)  _F(F)  &kp G                     &kp H  _F(J)  _N(K)  _LS(L)  SYM(SCLN)
         _LC(Z) _LA(X)  _LG(C) &kp V  &kp B                     &kp N  &kp M  _G_CMA _A_DOT  _LC(FSLH)
-                              _G_TAB _S_ESC                    _NAV   _LA(RET)
+                             _G_TAB _S_ESC                     _LA(RET) _NAV   
       >;
     };
 
@@ -171,16 +184,16 @@
     nav_layer {
       bindings = <
         ______ ______ ______ ______ ______                     ______  _HOME    _UP   _END ______
-        ______ ______ ______ ______ ______                     ______  _LEFT  _DOWN  _RGHT   _RET
+        ______ ______  _TABB  _TABF ______                     ______  _LEFT  _DOWN  _RGHT   _RET
         ______ ______ ______ ______ ______                     ______ ______  _PGUP  _PGDN ______
-                             ______ ______                     ______ ______
+                             ______ &caps_word                 ______ ______
       >;
     };
 
     symbol_layer {
       bindings = <
           _GRAV   _LPAR   _RPAR   _DLLR _______           _______   _UNDR   _MINS    _EQL _______
-          _LBKT _S_RBKT   _DLLR    _TAB _______           _______   _BKSP    _DEL _RS(SQT) ______
+          _LBKT _S_RBKT   _STAB    _TAB _______           _______   _BKSP    _DEL _RS(SQT) ______
         _______ _______ _______ _______ _______           _______   _BSLH _______ _______ _______
                                 _______ _______           _______ _______
       >;
@@ -188,10 +201,19 @@
 
     fn_layer {
       bindings = <
-                  _BT0 _BT1 _BT2 _BT3 _BTCLR        ___ /* C_VOL_UP */  _F7  _F8  _F9 _F10
-                  ____ ____ ____ ____ ____          ___ /* C_VOL_DN */  _F4  _F5  _F6 _F11
-                  ____ ____ ____ ____ ____          ___ /*   C_MUTE */  _F1  _F2  _F3 _F12
+                  ____ ____ ____ ____ ____                 C_VOL_UP  _F7  _F8  _F9 _F10
+                  ____ ____ ____ ____ ____                 C_VOL_DN  _F4  _F5  _F6 _F11
+                  ____ ____ ____ ____ ____          ___ /* C_MUTE */ _F1  _F2  _F3 _F12
                                  ____ ____                     ____    ____
+      >;
+    };
+
+    adjust_layer {
+      bindings = <
+                  _BT0 _BT1 _BT2 _BT3 _BTC                     ____ ____ ____ ____ ____
+                  ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____
+                  ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____
+                        &reset &bootloader                     &bootloader &reset
       >;
     };
 
