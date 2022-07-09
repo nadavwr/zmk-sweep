@@ -158,7 +158,7 @@
   conditional_layers {
     compatible = "zmk,conditional-layers";
     adjust_layer_ {
-      if-layers = <symbol_layer fun_layer>;
+      if-layers = <nav_layer fun_layer>;
       then-layer = <adjust_layer>;
     };
   };
