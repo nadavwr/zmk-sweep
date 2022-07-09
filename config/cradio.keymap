@@ -59,9 +59,9 @@
 #define _SPC    &kp SPC
 #define _S_RBKT _LS(RBKT)
 #define _TAB    &kp TAB
-#define _STAB   _LS(TAB)
-#define _FTAB   _LC(TAB)
-#define _BTAB   _LC(_LS(TAB))
+#define _STAB   &kp LS(TAB)
+#define _FTAB   &kp LC(TAB)
+#define _BTAB   &kp LC(LS(TAB))
 #define _TILD   &kp TILD
 #define _UNDR   &kp UNDER
 
