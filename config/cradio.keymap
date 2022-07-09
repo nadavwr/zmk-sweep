@@ -120,9 +120,8 @@
 #define symbol_layer 3
 #define SYM(kp) &ltp symbol_layer kp
 
-#define fn_layer 4
-#define _FN &mo fn_layer
-#define _F(x)   &ltp fn_layer x
+#define fun_layer 4
+#define _F(x)   &ltp fun_layer x
 
 #define adjust_layer 5
 
@@ -159,7 +158,7 @@
   conditional_layers {
     compatible = "zmk,conditional-layers";
     adjust_layer_ {
-      if-layers = <symbol_layer fn_layer>;
+      if-layers = <symbol_layer fun_layer>;
       then-layer = <adjust_layer>;
     };
   };
@@ -190,7 +189,7 @@
         ______ ______ ______ ______ ______                     ______  _HOME    _UP   _END ______
         ______ ______  _BTAB  _FTAB ______                     ______  _LEFT  _DOWN  _RGHT   _RET
         ______ ______ ______ ______ ______                     ______ ______  _PGUP  _PGDN ______
-                             ______ ______                 ______ ______
+                             ______ ______                     ______ ______
       >;
     };
 
@@ -203,11 +202,11 @@
       >;
     };
 
-    fn_layer {
+    fun_layer {
       bindings = <
-                  ____ ____ ____ ____ ____                     ____  _F7  _F8  _F9 _F10
-                  ____ ____ ____ ____ ____                     ____  _F4  _F5  _F6 _F11
-                  ____ ____ ____ ____ ____                     ____  _F1  _F2  _F3 _F12
+                  ____ ____ ____ ____ ____                     _VUP  _F7  _F8  _F9 _F10
+                  ____ ____ ____ ____ ____                     _VDN  _F4  _F5  _F6 _F11
+                  ____ ____ ____ ____ ____                     _MUT  _F1  _F2  _F3 _F12
                                  ____ ____                     ____ ____
       >;
     };
@@ -217,7 +216,7 @@
                   _BT0 _BT1 _BT2 _BT3 _BTC                     ____ ____ ____ ____ ____
                   ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____
                   ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____
-                        &reset &bootloader                     &bootloader &reset
+                                 ____ ____                     ____ ____
       >;
     };
 
