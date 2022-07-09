@@ -153,7 +153,7 @@
   };
 
   conditional_layers {
-    compatible = "zmk, conditional-layers";
+    compatible = "zmk,conditional-layers";
     adjust_layer_ {
       if-layers = <symbol_layer fn_layer>;
       then-layer = <adjust_layer>;
