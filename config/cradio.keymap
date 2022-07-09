@@ -155,13 +155,13 @@
     };
   };
 
-  conditional_layers {
-    compatible = "zmk,conditional-layers";
-    adjust_layer_ {
-      if-layers = <symbol_layer fun_layer>;
-      then-layer = <adjust_layer>;
-    };
-  };
+  // conditional_layers {
+  //   compatible = "zmk,conditional-layers";
+  //   adjust_layer_ {
+  //     if-layers = <symbol_layer fun_layer>;
+  //     then-layer = <adjust_layer>;
+  //   };
+  // };
 
   keymap {
     compatible = "zmk,keymap";
@@ -204,21 +204,21 @@
 
     fun_layer {
       bindings = <
-                  ____ ____ ____ ____ ____                     ____  _F7  _F8  _F9 _F10
+                  _BT0 _BT1 _BT2 _BT3 _BTC                     ____  _F7  _F8  _F9 _F10
                   ____ ____ ____ ____ ____                     ____  _F4  _F5  _F6 _F11
                   ____ ____ ____ ____ ____                     ____  _F1  _F2  _F3 _F12
                                  ____ ____                     ____ ____
       >;
     };
 
-    adjust_layer {
-      bindings = <
-                  _BT0 _BT1 _BT2 _BT3 _BTC                     ____ ____ ____ ____ ____
-                  ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____
-                  ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____
-                                 ____ ____                     ____ ____
-      >;
-    };
+    // adjust_layer {
+    //   bindings = <
+    //               _BT0 _BT1 _BT2 _BT3 _BTC                     ____ ____ ____ ____ ____
+    //               ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____
+    //               ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____
+    //                              ____ ____                     ____ ____
+    //   >;
+    // };
 
   };
 };
