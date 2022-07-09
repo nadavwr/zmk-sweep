@@ -184,7 +184,7 @@
     nav_layer {
       bindings = <
         ______ ______ ______ ______ ______                     ______  _HOME    _UP   _END ______
-        ______ ______  _TABB  _TABF ______                     ______  _LEFT  _DOWN  _RGHT   _RET
+        ______ ______  _BTAB  _FTAB ______                     ______  _LEFT  _DOWN  _RGHT   _RET
         ______ ______ ______ ______ ______                     ______ ______  _PGUP  _PGDN ______
                              ______ &caps_word                 ______ ______
       >;
