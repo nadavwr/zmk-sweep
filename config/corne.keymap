@@ -1,0 +1,225 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define ___     &trans
+#define ____    &trans
+#define _____   &trans
+#define ______  &trans
+#define _______ &trans
+#define _BKSP   &kp BKSP
+#define _BSLH   &kp BSLH
+#define _CMMA   &kp CMMA
+#define _G_CMA  _RG(CMMA)
+#define _DEL    &kp DEL
+#define _DLLR   &kp DLLR
+#define _A_DOT  _LA(DOT)
+#define _EQL    &kp EQUAL
+#define _C_ESC  _LC(ESC)
+#define _S_ESC  _LS(ESC)
+#define _G_TAB  _LG(TAB)
+#define _FSLH   &kp FSLH
+#define _SCLN   SYM(SCLN)
+#define _GRAV   &kp GRAV
+#define _LALT   &kp LALT
+#define _LA(x)  &mtp LALT x
+#define _LBKT   &kp LBKT
+#define _LBRC   &kp LBRC
+#define _LCTL   &kp LCTL
+#define _LC(x)  &mtp LCTL x
+#define _LGUS   &mt LGUI SPC
+#define _LGUI   &kp LGUI
+#define _LG(x)  &mtp LGUI x
+#define _LPAR   &kp LPAR
+#define _LSFS   &mt LSFT SPC
+#define _LSFT   &kp LSFT
+#define _LS(x)  &mtp LSFT x
+#define _MINS   &kp MINUS
+#define _MUTE   &kp K_MUTE
+#define _N(x)   &ltp num_layer x
+#define _RALT   &kp RALT
+#define _RA(x)  &mtp LALT x
+#define _RBKT   &kp RBKT
+#define _RBRC   &kp RBRC
+#define _RCTL   &kp RCTL
+#define _RC(x)  &mtp RCTL x
+#define _RET    &kp RET
+#define _RG(x)  &mtp RGUI x
+#define _RPAR   &kp RPAR
+#define _RSFR   &mt RSFT RET
+#define _RSFS   &mt RSFT SPC
+#define _RSFT   &kp RSFT
+#define _RS(x)  &mtp RSFT x
+#define _SQT    &kp SQT
+#define _SPC    &kp SPC
+#define _S_RBKT _LS(RBKT)
+#define _TAB    &kp TAB
+#define _STAB   &kp LS(TAB)
+#define _FTAB   &kp LC(TAB)
+#define _BTAB   &kp LC(LS(TAB))
+#define _TILD   &kp TILD
+#define _UNDR   &kp UNDER
+
+#define _LEFT   &kp LEFT
+#define _DOWN   &kp DOWN
+#define _UP     &kp UP
+#define _RGHT   &kp RIGHT
+#define _HOME   &kp HOME
+#define _END    &kp END
+#define _PGDN   &kp PG_DN
+#define _PGUP   &kp PG_UP
+
+#define _BT0    &bt BT_SEL 0
+#define _BT1    &bt BT_SEL 1
+#define _BT2    &bt BT_SEL 2
+#define _BT3    &bt BT_SEL 3
+#define _BTC    &bt BT_CLR
+
+#define _VUP    &kp C_VOL_UP
+#define _VDN    &kp C_VOL_DN
+#define _MUT    &kp C_MUTE
+
+#define _F1     &kp F1
+#define _F2     &kp F2
+#define _F3     &kp F3
+#define _F4     &kp F4
+#define _F5     &kp F5
+#define _F6     &kp F6
+#define _F7     &kp F7
+#define _F8     &kp F8
+#define _F9     &kp F9
+#define _F10    &kp F10
+#define _F11    &kp F11
+#define _F12    &kp F12
+
+#define _N1     &kp N1
+#define _N2     &kp N2
+#define _N3     &kp N3
+#define _N4     &kp N4
+#define _N5     &kp N5
+#define _N6     &kp N6
+#define _N7     &kp N7
+#define _N8     &kp N8
+#define _N9     &kp N9
+#define _N0     &kp N0
+
+#define default_layer 0
+#define _QWERTY &to default_layer
+
+#define num_layer 1
+#define _NUM &mo num_layer
+
+#define nav_layer 2
+#define _NAV &lt nav_layer SPC
+
+#define symbol_layer 3
+#define SYM(kp) &ltp symbol_layer kp
+
+#define fun_layer 4
+#define _F(x)   &ltp fun_layer x
+
+#define adjust_layer 5
+
+#define TAPPING_TERM 150
+
+#define _BLANK \
+                       ___ ___ ___ ___ ___ ___            ___ ___ ___ ___ ___ ___ \
+                       ___ ___ ___ ___ ___ ___            ___ ___ ___ ___ ___ ___ \
+                       ___ ___ ___ ___ ___ ___            ___ ___ ___ ___ ___ ___ \
+                                   ___ ___ ___            ___ ___ ___
+
+/ {
+
+  behaviors {
+    ltp: behavior_layer_tap_permissive {
+      compatible = "zmk,behavior-hold-tap";
+      label = "LAYER_TAP_PERMISSIVE";
+      flavor = "tap-preferred";
+      tapping_term_ms = <TAPPING_TERM>;
+      #binding-cells = <2>;
+      bindings = <&mo>, <&kp>;
+    };
+
+    mtp: behavior_mod_tap_permissive {
+      compatible = "zmk,behavior-hold-tap";
+      label = "MOD_TAP_PERMISSIVE";
+      tapping_term_ms = <TAPPING_TERM>;
+      flavor = "tap-preferred";
+      #binding-cells = <2>;
+      bindings = <&kp>, <&kp>;
+    };
+  };
+
+  conditional_layers {
+    compatible = "zmk,conditional-layers";
+    adjust_layer_ {
+      if-layers = <nav_layer fun_layer>;
+      then-layer = <adjust_layer>;
+    };
+  };
+
+  keymap {
+    compatible = "zmk,keymap";
+
+    default_layer {
+      bindings = <
+        _FTAB  &kp Q  &kp W   &kp E  &kp R  &kp T       &kp Y  &kp U  &kp I  &kp O   &kp P     _BKSP
+        _C_ESC SYM(A) _LS(S)  _N(D)  _F(F)  &kp G       &kp H  _F(J)  _N(K)  _LS(L)  SYM(SCLN) &kp SQT
+        _LSFT  _LC(Z) _LA(X)  _LG(C) &kp V  &kp B       &kp N  &kp M  _G_CMA _A_DOT  _LC(FSLH) _RET
+                              _LALT _G_TAB _S_ESC       _LA(RET) _NAV &kp K_APP
+      >;
+    };
+
+    num_layer {
+      bindings = <
+                       ___ ___ ___ ___ ___ ___            ___ _N7 _N8 _N9 _N0 ___
+                       ___ ___ ___ ___ ___ ___            ___ _N4 _N5 _N6 ___ ___
+                       ___ ___ ___ ___ ___ ___            ___ _N1 _N2 _N3 ___ ___
+                                   ___ ___ ___            _N0 _N0 ___
+      >;
+    };
+
+    nav_layer {
+      bindings = <
+        ______ ______ ______ ______ ______ ______       ______  _HOME    _UP   _END ______ ______
+        ______ ______ ______  _BTAB  _FTAB ______       ______  _LEFT  _DOWN  _RGHT   _RET ______
+        ______ ______ ______ ______ ______ ______       ______ ______  _PGUP  _PGDN ______ ______
+                         ______ ______ &caps_word       ______ ______ ______
+      >;
+    };
+
+    symbol_layer {
+      bindings = <
+        _______   _GRAV   _LPAR   _RPAR   _DLLR _______           _______   _UNDR   _MINS    _EQL _______ _______
+        _______   _LBKT _S_RBKT   _STAB    _TAB _______           _______   _BKSP    _DEL _RS(SQT) ______ _______
+        _______ _______ _______ _______ _______ _______           _______   _BSLH _______ _______ _______ _______
+                                _______ _______ _______           _______ _______ _______
+      >;
+    };
+
+    fun_layer {
+      bindings = <
+                  ____ ____ ____ ____ ____ ____           _VUP  _F7  _F8  _F9 _F10 ____
+                  ____ ____ ____ ____ ____ ____           _VDN  _F4  _F5  _F6 _F11 ____
+                  ____ ____ ____ ____ ____ ____           _MUT  _F1  _F2  _F3 _F12 ____
+                                 ____ ____ ____           ____ ____ ____
+      >;
+    };
+
+    adjust_layer {
+      bindings = <
+                  ____ _BT0 _BT1 _BT2 _BT3 _BTC                     ____ ____ ____ ____ ____ ____
+                  ____ ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____ ____
+                  ____ ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____ ____
+                        ____ &reset &bootloader                     &bootloader &reset ____
+      >;
+    };
+
+  };
+};
