@@ -23,6 +23,7 @@
 #define _EQL    &kp EQUAL
 #define _C_ESC  _LC(ESC)
 #define _S_ESC  _LS(ESC)
+#define _MESC   &lt mod_layer ESC
 #define _G_TAB  _LG(TAB)
 #define _FSLH   &kp FSLH
 #define _SCLN   SYM(SCLN)
@@ -50,6 +51,7 @@
 #define _RCTL   &kp RCTL
 #define _RC(x)  &mtp RCTL x
 #define _RET    &kp RET
+#define _MRET   &lt mod_layer RET
 #define _RG(x)  &mtp RGUI x
 #define _RPAR   &kp RPAR
 #define _RSFR   &mt RSFT RET
@@ -126,7 +128,9 @@
 
 #define adjust_layer 5
 
-#define TAPPING_TERM 150
+#define mod_layer 6
+
+#define TAPPING_TERM 100
 
 #define _BLANK \
                        ___ ___ ___ ___ ___ ___            ___ ___ ___ ___ ___ ___ \
@@ -169,10 +173,10 @@
 
     default_layer {
       bindings = <
-        _FTAB  &kp Q  &kp W   &kp E  &kp R  &kp T       &kp Y  &kp U  &kp I  &kp O   &kp P     _BKSP
+        _TAB   &kp Q  &kp W   &kp E  &kp R  &kp T       &kp Y  &kp U  &kp I  &kp O   &kp P     _BKSP
         _C_ESC SYM(A) _LS(S)  _N(D)  _F(F)  &kp G       &kp H  _F(J)  _N(K)  _LS(L)  SYM(SCLN) &kp SQT
-        _LSFT  _LC(Z) _LA(X)  _LG(C) &kp V  &kp B       &kp N  &kp M  _G_CMA _A_DOT  _LC(FSLH) _RET
-                              _LALT _G_TAB _S_ESC       _LA(RET) _NAV &kp K_APP
+        _LSFT  _LC(Z) &kp X   &kp C  &kp V  &kp B       &kp N  &kp M  _G_CMA _A_DOT  _LC(FSLH) _RET
+                              _LALT  _LGUS _S_ESC       _RET _NAV &kp K_APP
       >;
     };
 
@@ -181,7 +185,7 @@
                        ___ ___ ___ ___ ___ ___            ___ _N7 _N8 _N9 _N0 ___
                        ___ ___ ___ ___ ___ ___            ___ _N4 _N5 _N6 ___ ___
                        ___ ___ ___ ___ ___ ___            ___ _N1 _N2 _N3 ___ ___
-                                   ___ ___ ___            _N0 _N0 ___
+                                   ___ ___ ___            ___ _N0 ___
       >;
     };
 
@@ -190,7 +194,7 @@
         ______ ______ ______ ______ ______ ______       ______  _HOME    _UP   _END ______ ______
         ______ ______ ______  _BTAB  _FTAB ______       ______  _LEFT  _DOWN  _RGHT   _RET ______
         ______ ______ ______ ______ ______ ______       ______ ______  _PGUP  _PGDN ______ ______
-                         ______ ______ &caps_word       ______ ______ ______
+                             ______ ______ ______       ______ ______ ______
       >;
     };
 
@@ -205,9 +209,9 @@
 
     fun_layer {
       bindings = <
-                  ____ ____ ____ ____ ____ ____           _VUP  _F7  _F8  _F9 _F10 ____
-                  ____ ____ ____ ____ ____ ____           _VDN  _F4  _F5  _F6 _F11 ____
-                  ____ ____ ____ ____ ____ ____           _MUT  _F1  _F2  _F3 _F12 ____
+                  ____ ____ ____ ____ ____ ____           _MUT  _F7  _F8  _F9 _F10 _MUT
+                  ____ ____ ____ ____ ____ ____           _VUP  _F4  _F5  _F6 _F11 _VUP
+                  ____ ____ ____ ____ ____ ____           _VDN  _F1  _F2  _F3 _F12 _VDN
                                  ____ ____ ____           ____ ____ ____
       >;
     };
@@ -220,6 +224,16 @@
                         ____ &reset &bootloader                     &bootloader &reset ____
       >;
     };
+
+    mod_layer {
+      bindings = <
+        _______ _______ _______ _______ _______ _______           _______ _______ _______ _______ _______ _______
+        _______ &sk LCTL &sk LSFT &sk LALT &sk LGUI ___           ___ &sk RGUI &sk LALT &sk RSFT &sk RCTL _______
+        _______ _______ _______ _______ _______ _______           _______ _______ _______ _______ _______ _______
+                                   ____ ____ &caps_word           &caps_word ____ ____
+      >;
+    };
+
 
   };
 };
