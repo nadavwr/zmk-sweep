@@ -176,7 +176,7 @@
         _TAB   &kp Q  &kp W   &kp E  &kp R  &kp T       &kp Y  &kp U  &kp I  &kp O   &kp P     _BKSP
         _C_ESC SYM(A) _LS(S)  _N(D)  _F(F)  &kp G       &kp H  _F(J)  _N(K)  _LS(L)  SYM(SCLN) &kp SQT
         _LSFT  _LC(Z) &kp X   &kp C  &kp V  &kp B       &kp N  &kp M  _G_CMA _A_DOT  _LC(FSLH) _RET
-                              _LALT  _LGUS _S_ESC       _RET _NAV &kp K_APP
+                              _LALT  _LGUS  _MESC       _MRET _NAV &kp K_APP
       >;
     };
 
