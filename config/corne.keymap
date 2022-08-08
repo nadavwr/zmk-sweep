@@ -130,7 +130,7 @@
 
 #define mod_layer 6
 
-#define TAPPING_TERM 100
+#define TAPPING_TERM 175
 
 #define _BLANK \
                        ___ ___ ___ ___ ___ ___            ___ ___ ___ ___ ___ ___ \
