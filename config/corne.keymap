@@ -67,6 +67,8 @@
 #define _BTAB   &kp LC(LS(TAB))
 #define _TILD   &kp TILD
 #define _UNDR   &kp UNDER
+#define _GT     &kp GT
+#define _LT     &kp LT
 
 #define _LEFT   &kp LEFT
 #define _DOWN   &kp DOWN
@@ -200,7 +202,7 @@
 
     symbol_layer {
       bindings = <
-        _______   _GRAV   _LPAR   _RPAR   _DLLR _______           _______   _UNDR   _MINS    _EQL _______ _______
+        _______   _GRAV   _LPAR   _RPAR   _DLLR _______               _LT   _UNDR   _MINS    _EQL     _GT _______
         _______   _LBKT _S_RBKT   _STAB    _TAB _______           _______   _BKSP    _DEL _RS(SQT) ______ _______
         _______ _______ _______ _______ _______ _______           _______   _BSLH _______ _______ _______ _______
                                 _______ _______ _______           _______ _______ _______

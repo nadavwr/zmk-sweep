@@ -21,8 +21,9 @@
 #define _DLLR   &kp DLLR
 #define _A_DOT  _LA(DOT)
 #define _EQL    &kp EQUAL
-#define _S_ESC  _LS(ESC)
-#define _G_TAB  _LG(TAB)
+#define _SESC  _LS(ESC)
+#define _GESC  _LG(ESC)
+#define _GTAB  _LG(TAB)
 #define _FSLH   &kp FSLH
 #define _SCLN   SYM(SCLN)
 #define _GRAV   &kp GRAV
@@ -64,6 +65,8 @@
 #define _BTAB   &kp LC(LS(TAB))
 #define _TILD   &kp TILD
 #define _UNDR   &kp UNDER
+#define _GT     &kp GT
+#define _LT     &kp LT
 
 #define _LEFT   &kp LEFT
 #define _DOWN   &kp DOWN
@@ -108,6 +111,10 @@
 #define _N9     &kp N9
 #define _N0     &kp N0
 
+#define _MRET   &lt mod_layer RET
+#define _MESC   &lt mod_layer ESC
+#define _MTAB   &lt mod_layer TAB
+
 #define default_layer 0
 #define _QWERTY &to default_layer
 
@@ -125,7 +132,9 @@
 
 #define adjust_layer 5
 
-#define TAPPING_TERM 150
+#define mod_layer 6
+
+#define TAPPING_TERM 175
 
 #define _BLANK \
                        ___ ___ ___ ___ ___                     ___ ___ ___ ___ ___ \
@@ -171,7 +180,7 @@
         _LC(Q) &kp W   &kp E  &kp R  &kp T                     &kp Y  &kp U  &kp I  &kp O   _LC(P)
         SYM(A) _LS(S)  _N(D)  _F(F)  &kp G                     &kp H  _F(J)  _N(K)  _LS(L)  SYM(SCLN)
         _LC(Z) _LA(X)  _LG(C) &kp V  &kp B                     &kp N  &kp M  _G_CMA _A_DOT  _LC(FSLH)
-                             _G_TAB _S_ESC                     _LA(RET) _NAV   
+                              _MTAB  _GESC                     _NAV   _MRET
       >;
     };
 
@@ -187,7 +196,7 @@
     nav_layer {
       bindings = <
         ______ ______ ______ ______ ______                     ______  _HOME    _UP   _END ______
-        ______ ______ ______ ______ ______                     ______  _LEFT  _DOWN  _RGHT   _RET
+        ______ ______  _BTAB  _FTAB ______                     ______  _LEFT  _DOWN  _RGHT   _RET
         ______ ______ ______ ______ ______                     ______ ______  _PGUP  _PGDN ______
                              ______ &caps_word                 ______ ______
       >;
@@ -195,7 +204,7 @@
 
     symbol_layer {
       bindings = <
-          _GRAV   _LPAR   _RPAR   _DLLR _______           _______   _UNDR   _MINS    _EQL _______
+          _GRAV   _LPAR   _RPAR   _DLLR _______               _LT   _UNDR   _MINS    _EQL     _GT
           _LBKT _S_RBKT   _STAB    _TAB _______           _______   _BKSP    _DEL _RS(SQT) ______
         _______ _______ _______ _______ _______           _______   _BSLH _______ _______ _______
                                 _______ _______           _______ _______
