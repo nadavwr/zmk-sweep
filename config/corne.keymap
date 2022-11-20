@@ -176,7 +176,7 @@
     default_layer {
       bindings = <
         _TAB   &kp Q  &kp W   &kp E  &kp R  &kp T       &kp Y  &kp U  &kp I  &kp O   &kp P     _BKSP
-        _C_ESC SYM(A) _LS(S)  _N(D)  _F(F)  &kp G       &kp H  _F(J)  _N(K)  _LS(L)  SYM(SCLN) &kp SQT
+        _C_ESC SYM(A) _LS(S)  _N(D)  _F(F)  &kp G       &kp H  SYM(J) SYM(K) _LS(L)  SYM(SCLN) &none
         _LSFT  _LC(Z) &kp X   &kp C  &kp V  &kp B       &kp N  &kp M  _G_CMA _A_DOT  _LC(FSLH) _RET
                               _LALT  _LGUS  _MESC       _MRET _NAV &kp K_APP
       >;
@@ -193,18 +193,18 @@
 
     nav_layer {
       bindings = <
-        ______ ______ ______ ______ ______ ______       ______  _HOME    _UP   _END ______ ______
-        ______ ______ ______  _BTAB  _FTAB ______       ______  _LEFT  _DOWN  _RGHT   _RET ______
-        ______ ______ ______ ______ ______ ______       ______ ______  _PGUP  _PGDN ______ ______
+        ______ ______ ______ ______ ______ ______       ______  _HOME    _UP   _END  _BKSP _VUP
+        ______ ______ ______ ______ ______ ______       ______  _LEFT  _DOWN  _RGHT   _RET _VDN
+        ______ ______ ______ ______ ______ ______        _BTAB  _FTAB  _PGUP  _PGDN ______ _MUT
                              ______ ______ ______       ______ ______ ______
       >;
     };
 
     symbol_layer {
       bindings = <
-        _______   _GRAV   _LPAR   _RPAR   _DLLR _______               _LT   _UNDR   _MINS    _EQL     _GT _______
-        _______   _LBKT _S_RBKT   _STAB    _TAB _______           _______   _BKSP    _DEL _RS(SQT) ______ _______
-        _______ _______ _______ _______ _______ _______           _______   _BSLH _______ _______ _______ _______
+        _______   _GRAV   _LPAR   _RPAR   _DLLR _______           _______     _LT   _MINS    _EQL     _GT _______
+        _______   _LBKT _S_RBKT   _STAB    _TAB _______           _______   _BKSP    _DEL _RS(SQT)   _DEL _______
+        _______ _______ _______ _______ _______ _______           _______   _BSLH     _LT     _GT _______ _______
                                 _______ _______ _______           _______ _______ _______
       >;
     };
@@ -212,7 +212,7 @@
     fun_layer {
       bindings = <
                   ____ ____ ____ ____ ____ ____           _MUT  _F7  _F8  _F9 _F10 _MUT
-                  ____ ____ ____ ____ ____ ____           _VUP  _F4  _F5  _F6 _F11 _VUP
+                  ___ _STAB ____ ____ ____ ____           _VUP  _F4  _F5  _F6 _F11 _VUP
                   ____ ____ ____ ____ ____ ____           _VDN  _F1  _F2  _F3 _F12 _VDN
                                  ____ ____ ____           ____ ____ ____
       >;
@@ -220,19 +220,19 @@
 
     adjust_layer {
       bindings = <
-                  ____ _BT0 _BT1 _BT2 _BT3 _BTC                     ____ ____ ____ ____ ____ ____
                   ____ ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____ ____
                   ____ ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____ ____
-                        ____ &reset &bootloader                     &bootloader &reset ____
+                  ____ ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____ ____
+                                 ____ ____ ____                     ____ ____ ____
       >;
     };
 
     mod_layer {
       bindings = <
-        _______ _______ _______ _______ _______ _______           _______ _______ _______ _______ _______ _______
+        _______  _BT0    _BT1     _BT2     _BT3    _BTC           _BTC    _BT3     _BT2     _BT1     _BT0 _______
         _______ &sk LCTL &sk LSFT &sk LALT &sk LGUI ___           ___ &sk RGUI &sk LALT &sk RSFT &sk RCTL _______
         _______ _______ _______ _______ _______ _______           _______ _______ _______ _______ _______ _______
-                                   ____ ____ &caps_word           &caps_word ____ ____
+                          &bootloader &reset &caps_word           &caps_word &reset &bootloader
       >;
     };
 
