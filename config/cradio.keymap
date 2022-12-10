@@ -179,7 +179,7 @@
       bindings = <
         &kp Q  &kp W   &kp E  &kp R  &kp T                     &kp Y  &kp U  &kp I  &kp O   &kp P
         SYM(A) _LS(S)  _N(D)  _F(F)  &kp G                     &kp H SYM(J) SYM(K)  _LS(L)  SYM(SCLN)
-        _LC(Z) &kp X   &kp C  &kp V  &kp B                     &kp N  &kp M &kp CMA &kp DOT _LC(FSLH)
+        _LC(Z) &kp X   &kp C  &kp V  &kp B                     &kp N  &kp M  _CMMA  &kp DOT _LC(FSLH)
                            &kp LALT  _GESC                     _NAV   &caps_word
       >;
     };
