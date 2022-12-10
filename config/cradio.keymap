@@ -167,7 +167,7 @@
   conditional_layers {
     compatible = "zmk,conditional-layers";
     adjust_layer_ {
-      if-layers = <nav_layer fun_layer>;
+      if-layers = <nav_layer symbol_layer>;
       then-layer = <adjust_layer>;
     };
   };
@@ -180,7 +180,7 @@
         &kp Q  &kp W   &kp E  &kp R  &kp T                     &kp Y  &kp U  &kp I  &kp O   &kp P
         SYM(A) _LS(S)  _N(D)  _F(F)  &kp G                     &kp H SYM(J) SYM(K)  _LS(L)  SYM(SCLN)
         _LC(Z) &kp X   &kp C  &kp V  &kp B                     &kp N  &kp M &kp CMA &kp DOT _LC(FSLH)
-                    _LA(&caps_word)  _GESC                     _NAV   _RC(&caps_word)
+                           &kp LALT  _GESC                     _NAV   &caps_word
       >;
     };
 
@@ -207,7 +207,7 @@
           _GRAV   _LPAR   _RPAR   _DLLR _______           _______     _LT   _MINS    _EQL     _GT
           _LBKT _S_RBKT   _STAB    _TAB _______           _______   _BKSP    _DEL _RS(SQT)   _DEL
         _______ _______ _______ _______ _______           _______   _BSLH _______ _______ _______
-                                _______ _______           _______ _______
+                            &bootloader _______           _______ &bootloader
       >;
     };
 
@@ -225,7 +225,7 @@
                   _BT0 _BT1 _BT2 _BT3 _BTC                     ____ ____ ____ ____ ____
                   ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____
                   ____ ____ ____ ____ ____                     ____ ____ ____ ____ ____
-                        &reset &bootloader                     &bootloader &reset
+                                 ____ ____                     ____ ____
       >;
     };
 
