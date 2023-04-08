@@ -244,7 +244,7 @@
         _______  _BT0    _BT1     _BT2     _BT3    _BTC           _BTC    _BT3     _BT2     _BT1     _BT0 _______
         _______ &sk LCTL &sk LSFT &sk LALT &sk LGUI ___           ___ &sk RGUI &sk LALT &sk RSFT &sk RCTL _______
         _______ _______ _______ _______ _______ _______           _______ _______ _______ _______ _______ _______
-                          &bootloader &reset &caps_word           &caps_word &reset &bootloader
+                      &bootloader &sys_reset &caps_word           &caps_word &sys_reset &bootloader
       >;
     };
 
