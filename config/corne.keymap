@@ -117,7 +117,7 @@
 #define _QWERTY &to default_layer
 
 #define gaming_layer 1
-#define _GAMING &to gaming_layer
+#define _GAMING &mo gaming_layer
 
 #define num_layer 2
 #define _NUM &mo num_layer
@@ -179,7 +179,7 @@
     default_layer {
       bindings = <
         _TAB   &kp Q  &kp W   &kp E  &kp R  &kp T       &kp Y  &kp U  &kp I  &kp O   &kp P     _BKSP
-        _C_ESC SYM(A) _LS(S)  _N(D)  _F(F)  &kp G       &kp H  SYM(J) SYM(K) _LS(L)  SYM(SCLN) &none
+        _C_ESC SYM(A) _LS(S)  _N(D)  _F(F)  &kp G       &kp H  SYM(J) SYM(K) _LS(L)  SYM(SCLN) _GAMING
         _LSFT  _LC(Z) &kp X   &kp C  &kp V  &kp B       &kp N  &kp M  _G_CMA _A_DOT  _LC(FSLH) _RET
                               _LALT  _LGUS  _MESC       _MRET _NAV &kp K_APP
       >;
@@ -188,7 +188,7 @@
     gaming_layer {
       bindings = <
         _TAB   &kp Q  &kp W   &kp E  &kp R  &kp T       &kp Y  &kp U  &kp I  &kp O   &kp P     _BKSP
-        _LCTL  &kp A  &kp S   &kp D  &kp F  &kp G       &kp H  SYM(J) SYM(K) _LS(L)  SYM(SCLN) &none
+        _LCTL  &kp A  &kp S   &kp D  &kp F  &kp G       &kp H  SYM(J) SYM(K) _LS(L)  SYM(SCLN) ____
         _LSFT  &kp Z  &kp X   &kp C  &kp V  &kp B       &kp N  &kp M  _G_CMA _A_DOT  _LC(FSLH) _RET
                               _LALT  _SPC   _MESC       _MRET _NAV &kp K_APP
       >;
