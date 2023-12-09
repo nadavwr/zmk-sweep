@@ -133,9 +133,9 @@
 #define fun_layer 5
 #define _F(x)   &ltp fun_layer x
 
-#define adjust_layer 6
+#define mod_layer 6
+#define adjust_layer mod_layer
 
-#define mod_layer 7
 
 #define TAPPING_TERM 175
 
@@ -237,7 +237,7 @@
         _______  _BT0    _BT1     _BT2     _BT3    _BTC           _BTC    _BT3     _BT2     _BT1     _BT0 _______
         _______ &sk LCTL &sk LSFT &sk LALT &sk LGUI ___           ___ &sk RGUI &sk LALT &sk RSFT &sk RCTL _______
         _______ _______ _______ _______ _______ _______           _______ _______ _______ _______ _______ _______
-                         &bootloader &sys_reset _______           _______ &sys_reset &bootloader
+                      &bootloader &sys_reset &caps_word           &caps_word &sys_reset &bootloader
       >;
     };
 
