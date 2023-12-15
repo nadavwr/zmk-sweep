@@ -153,7 +153,7 @@
       timeout-ms = <TAPPING_TERM>;
       key-positions = <38 39>;
       bindings = <&caps_word>;
-    }
+    };
   };
 
   behaviors {
