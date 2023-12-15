@@ -21,6 +21,7 @@
 #define _DLLR   &kp DLLR
 #define _A_DOT  _LA(DOT)
 #define _EQL    &kp EQUAL
+#define _ESC    &kp ESC
 #define _C_ESC  _LC(ESC)
 #define _S_ESC  _LS(ESC)
 #define _MESC   &lt mod_layer ESC
@@ -104,16 +105,17 @@
 #define _F11    &kp F11
 #define _F12    &kp F12
 
-#define _N1     &kp N1
-#define _N2     &kp N2
-#define _N3     &kp N3
-#define _N4     &kp N4
-#define _N5     &kp N5
-#define _N6     &kp N6
-#define _N7     &kp N7
-#define _N8     &kp N8
-#define _N9     &kp N9
-#define _N0     &kp N0
+#define _N1     &kp KP_N1
+#define _N2     &kp KP_N2
+#define _N3     &kp KP_N3
+#define _N4     &kp KP_N4
+#define _N5     &kp KP_N5
+#define _N6     &kp KP_N6
+#define _N7     &kp KP_N7
+#define _N8     &kp KP_N8
+#define _N9     &kp KP_N9
+#define _N0     &kp KP_N0
+#define _NDT    &kp KP_DOT
 
 #define default_layer 0
 #define _QWERTY &to default_layer
@@ -133,9 +135,7 @@
 #define fun_layer 5
 #define _F(x)   &ltp fun_layer x
 
-#define mod_layer 6
-#define adjust_layer mod_layer
-
+#define adjust_layer 6
 
 #define TAPPING_TERM 175
 
@@ -146,6 +146,15 @@
                                    ___ ___ ___            ___ ___ ___
 
 / {
+
+  combos {
+    compatible = "zmk,combos";
+    combo_shifts {
+      timeout-ms = <TAPPING_TERM>;
+      key-positions = <38 39>;
+      bindings = <&caps_word>;
+    }
+  };
 
   behaviors {
     ltp: behavior_layer_tap_permissive {
@@ -181,9 +190,9 @@
     default_layer {
       bindings = <
         _TAB   &kp Q  &kp W   &kp E  &kp R  &kp T       &kp Y  &kp U  &kp I  &kp O   &kp P     _BKSP
-        _C_ESC SYM(A) _LS(S)  _N(D)  _F(F)  &kp G       &kp H  SYM(J) SYM(K) _LS(L)  SYM(SCLN) _GAMING
-        _LSFT  _LC(Z) &kp X   &kp C  &kp V  &kp B       &kp N  &kp M  _G_CMA _A_DOT  _LC(FSLH) _RET
-                              _LALT  _LGUS  _MESC       _MRET _NAV &kp K_APP
+        _C_ESC SYM(A) _LS(S)  _N(D)  _F(F)  &kp G       &kp H  SYM(J) SYM(K) _RS(L)  SYM(SCLN) _GAMING
+        _LSFT  _LC(Z) &kp X   &kp C  &kp V  &kp B       &kp N  &kp M  _G_CMA _A_DOT  _RC(FSLH) _RET
+                              _LALT  _LGUS  _LS(ESC) _RS(RET)  _NAV   &kp K_APP
       >;
     };
 
@@ -192,7 +201,7 @@
         _TAB   &kp Q  &kp W   &kp E  &kp R  &kp T       &kp Y  &kp U  &kp I  &kp O   &kp P     _BKSP
         _LCTL  &kp A  &kp S   &kp D  &kp F  &kp G       &kp H  SYM(J) SYM(K) _LS(L)  SYM(SCLN) ____
         _LSFT  &kp Z  &kp X   &kp C  &kp V  &kp B       &kp N  &kp M  _G_CMA _A_DOT  _LC(FSLH) _RET
-                              _LALT  _SPC   _MESC       _MRET _NAV &kp K_APP
+                              _LALT  _SPC   _ESC        _RET   _NAV   &kp K_APP
       >;
     };
 
@@ -200,8 +209,8 @@
       bindings = <
                        ___ ___ ___ ___ ___ ___            ___ _N7 _N8 _N9 _N0  ___
                        ___ ___ ___ ___ ___ ___            ___ _N4 _N5 _N6 _COL ___
-                       ___ ___ ___ ___ ___ ___            ___ _N1 _N2 _N3 _DOT ___
-                                   ___ ___ ___            ___ _N0 _DOT
+                       ___ ___ ___ ___ ___ ___            ___ _N1 _N2 _N3 _NDT ___
+                                   ___ ___ ___            ___ _N0 _NDT
       >;
     };
 
@@ -232,12 +241,12 @@
       >;
     };
 
-    mod_layer {
+    adjust_layer {
       bindings = <
-        _______  _BT0    _BT1     _BT2     _BT3    _BTC           _BTC    _BT3     _BT2     _BT1     _BT0 _______
-        _______ &sk LCTL &sk LSFT &sk LALT &sk LGUI ___           ___ &sk RGUI &sk LALT &sk RSFT &sk RCTL _______
+        _BTC    _BT0    _BT1    _BT2    _BT3    _BTC              _______ _______ _______ _______ _______ _______
         _______ _______ _______ _______ _______ _______           _______ _______ _______ _______ _______ _______
-                      &bootloader &sys_reset &caps_word           &caps_word &sys_reset &bootloader
+        _______ _______ _______ _______ _______ _______           _______ _______ _______ _______ _______ _______
+                                _______ _______ _______           _______ _______ _______
       >;
     };
 
