@@ -105,17 +105,17 @@
 #define _F11    &kp F11
 #define _F12    &kp F12
 
-#define _N1     &kp KP_N1
-#define _N2     &kp KP_N2
-#define _N3     &kp KP_N3
-#define _N4     &kp KP_N4
-#define _N5     &kp KP_N5
-#define _N6     &kp KP_N6
-#define _N7     &kp KP_N7
-#define _N8     &kp KP_N8
-#define _N9     &kp KP_N9
-#define _N0     &kp KP_N0
-#define _NDT    &kp KP_DOT
+#define _N1     &kp N1
+#define _N2     &kp N2
+#define _N3     &kp N3
+#define _N4     &kp N4
+#define _N5     &kp N5
+#define _N6     &kp N6
+#define _N7     &kp N7
+#define _N8     &kp N8
+#define _N9     &kp N9
+#define _N0     &kp N0
+#define _NDT    &kp DOT
 
 #define default_layer 0
 #define _QWERTY &to default_layer
@@ -179,7 +179,7 @@
   conditional_layers {
     compatible = "zmk,conditional-layers";
     adjust_layer_ {
-      if-layers = <nav_layer fun_layer>;
+      if-layers = <num_layer fun_layer>;
       then-layer = <adjust_layer>;
     };
   };
